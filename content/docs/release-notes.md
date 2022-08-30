@@ -1,6 +1,13 @@
 ---
 title: Release Notes
 ---
+## 2022-08-31 Storage release
+
+### What's new
+
+- Postgres Compute:  update vendor/postgres to 14.5.
+- Postgres Compute: add `PostGIS` & `plv8` extensions.
+- Pageserver: downgrade basebackup importing panics into plain errors.
 
 ## 2022-08-25 Console release
 
