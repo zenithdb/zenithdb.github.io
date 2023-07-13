@@ -15,6 +15,7 @@ export async function GET(request) {
   const background = fetch(
     new URL('../../../../public/images/og-image/background.png', import.meta.url)
   ).then((res) => res.arrayBuffer());
+
   const [fontDataMedium, fontDataNormal, logoData, backgroundData] = await Promise.all([
     fontMedium,
     fontNormal,
@@ -24,6 +25,7 @@ export async function GET(request) {
 
   try {
     const { searchParams } = request.nextUrl;
+    console.log(request);
 
     const hasTitle = searchParams.has('title');
     const title = hasTitle
