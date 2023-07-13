@@ -1,9 +1,7 @@
 import { ImageResponse } from 'next/server';
 
-export const config = {
-  runtime: 'edge', // this is a pre-requisite
-  regions: ['iad1'], // only execute this function on iad1
-};
+export const runtime = 'edge';
+export const preferredRegion = 'iad1';
 
 export async function GET(request) {
   const fontMedium = fetch(
