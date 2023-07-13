@@ -2,26 +2,25 @@ import { ImageResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-// const fontMedium = fetch(
-//   new URL('../../../../public/fonts/ibm-plex-sans/ibm-plex-sans-medium.ttf', import.meta.url)
-// ).then((res) => res.arrayBuffer());
-// const fontNormal = fetch(
-//   new URL('../../../../public/fonts/ibm-plex-sans/ibm-plex-sans-regular.ttf', import.meta.url)
-// ).then((res) => res.arrayBuffer());
-// const logo = fetch(new URL('../../../../public/images/og-image/logo.png', import.meta.url)).then(
-//   (res) => res.arrayBuffer()
-// );
-// const background = fetch(
-//   new URL('../../../../public/images/og-image/background.png', import.meta.url)
-// ).then((res) => res.arrayBuffer());
-
-const GET = async (request) => {
-  // const [fontDataMedium, fontDataNormal, logoData, backgroundData] = await Promise.all([
-  //   fontMedium,
-  //   fontNormal,
-  //   logo,
-  //   background,
-  // ]);
+export async function GET(request) {
+  const fontMedium = fetch(
+    new URL('../../../../public/fonts/ibm-plex-sans/ibm-plex-sans-medium.ttf', import.meta.url)
+  ).then((res) => res.arrayBuffer());
+  const fontNormal = fetch(
+    new URL('../../../../public/fonts/ibm-plex-sans/ibm-plex-sans-regular.ttf', import.meta.url)
+  ).then((res) => res.arrayBuffer());
+  const logo = fetch(new URL('../../../../public/images/og-image/logo.png', import.meta.url)).then(
+    (res) => res.arrayBuffer()
+  );
+  const background = fetch(
+    new URL('../../../../public/images/og-image/background.png', import.meta.url)
+  ).then((res) => res.arrayBuffer());
+  const [fontDataMedium, fontDataNormal, logoData, backgroundData] = await Promise.all([
+    fontMedium,
+    fontNormal,
+    logo,
+    background,
+  ]);
 
   try {
     const { searchParams } = request.nextUrl;
@@ -47,13 +46,13 @@ const GET = async (request) => {
             padding: '44px 56px 56px',
           }}
         >
-          {/* <img
+          <img
             width="1200"
             height="630"
             src={backgroundData}
             style={{ position: 'absolute', top: 0, left: 0 }}
           />
-          <img width="229" height="64" src={logoData} /> */}
+          <img width="229" height="64" src={logoData} />
           <div
             style={{
               display: 'flex',
@@ -93,20 +92,20 @@ const GET = async (request) => {
       {
         width: 1200,
         height: 630,
-        // fonts: [
-        //   {
-        //     name: 'IBM Plex Sans',
-        //     data: fontDataMedium,
-        //     style: 'normal',
-        //     weight: 500,
-        //   },
-        //   {
-        //     name: 'IBM Plex Sans',
-        //     data: fontDataNormal,
-        //     style: 'normal',
-        //     weight: 400,
-        //   },
-        // ],
+        fonts: [
+          {
+            name: 'IBM Plex Sans',
+            data: fontDataMedium,
+            style: 'normal',
+            weight: 500,
+          },
+          {
+            name: 'IBM Plex Sans',
+            data: fontDataNormal,
+            style: 'normal',
+            weight: 400,
+          },
+        ],
       }
     );
   } catch (e) {
@@ -115,6 +114,4 @@ const GET = async (request) => {
       status: 500,
     });
   }
-};
-
-export default GET;
+}
