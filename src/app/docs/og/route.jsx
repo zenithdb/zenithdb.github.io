@@ -24,7 +24,7 @@ const GET = async (request) => {
   // ]);
 
   try {
-    const { searchParams } = new URL(request.url);
+    const { searchParams } = request.nextUrl;
 
     const hasTitle = searchParams.has('title');
     const title = hasTitle
