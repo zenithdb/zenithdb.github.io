@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { Suspense } from 'react';
 
+import getGitHubStars from 'app/actions';
 import Button from 'components/shared/button';
 import Container from 'components/shared/container';
 import GithubStarCounter from 'components/shared/github-star-counter';
@@ -15,17 +15,6 @@ import ArrowIcon from 'icons/header/arrow-right.inline.svg';
 
 import HeaderWrapper from './header-wrapper';
 
-const API_URL = 'https://api.github.com/repos/neondatabase/neon';
-
-const getGithubStars = async () => {
-  const response = await fetch(API_URL, { next: { revalidate: 60 * 60 * 12 } });
-  const json = await response.json();
-  if (response.status >= 400) {
-    throw new Error('Error fetching GitHub stars');
-  }
-  return json.stargazers_count;
-};
-
 const Header = async ({
   className = null,
   theme = null,
@@ -35,7 +24,7 @@ const Header = async ({
   withBorder = false,
 }) => {
   const isDarkTheme = theme === 'dark';
-  const starsCount = await getGithubStars();
+  const starsCount = await getGitHubStars();
 
   return (
     <>
@@ -167,9 +156,7 @@ const Header = async ({
           </div>
 
           <div className="flex items-center gap-x-6 lg:hidden lg:pr-12">
-            <Suspense>
-              <GithubStarCounter isDarkTheme={isDarkTheme} starsCount={starsCount} />
-            </Suspense>
+            <GithubStarCounter isDarkTheme={isDarkTheme} starsCount={starsCount} />
             <Link
               className="text-[13px] leading-none tracking-extra-tight lg:hidden"
               to={LINKS.login}
