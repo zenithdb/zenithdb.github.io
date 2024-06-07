@@ -31,6 +31,7 @@ const Header = async ({
   theme = null,
   isSticky = false,
   isBlogPage = false,
+  isLoggedIn = false,
   isDocPage = false,
   withBorder = false,
 }) => {
@@ -170,22 +171,34 @@ const Header = async ({
             <Suspense>
               <GithubStarCounter isDarkTheme={isDarkTheme} starsCount={starsCount} />
             </Suspense>
-            <Link
-              className="text-[13px] leading-none tracking-extra-tight lg:hidden"
-              to={LINKS.login}
-              theme={isDarkTheme ? 'white' : 'black'}
-            >
-              Log In
-            </Link>
+            {isLoggedIn ? (
+              <Button
+                className="h-8 px-[22px] text-[13px] font-semibold leading-none tracking-extra-tight transition-colors duration-200 xl:px-4 lg:hidden"
+                to={LINKS.login}
+                theme="primary"
+              >
+                Go to Console
+              </Button>
+            ) : (
+              <>
+                <Link
+                  className="text-[13px] leading-none tracking-extra-tight lg:hidden"
+                  to={LINKS.login}
+                  theme={isDarkTheme ? 'white' : 'black'}
+                >
+                  Log In
+                </Link>
 
-            <Button
-              className="h-8 px-6 text-[13px] font-semibold leading-none tracking-extra-tight transition-colors duration-200 lg:hidden"
-              to={LINKS.signup}
-              theme="primary"
-              tag_name="Header"
-            >
-              Sign Up
-            </Button>
+                <Button
+                  className="h-8 px-6 text-[13px] font-semibold leading-none tracking-extra-tight transition-colors duration-200 lg:hidden"
+                  to={LINKS.signup}
+                  theme="primary"
+                  tag_name="Header"
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
           </div>
         </Container>
       </HeaderWrapper>
@@ -199,6 +212,7 @@ Header.propTypes = {
   theme: PropTypes.oneOf(['light', 'dark']),
   isSticky: PropTypes.bool,
   isBlogPage: PropTypes.bool,
+  isLoggedIn: PropTypes.bool,
   isDocPage: PropTypes.bool,
   withBorder: PropTypes.bool,
 };
