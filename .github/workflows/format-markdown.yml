@@ -6,37 +6,34 @@ on:
       - '**'
     paths:
       - 'content/**/*.md'
-      
+
 jobs:
   format-markdown:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-        token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
-    - name: Install Prettier
-      run: npm install prettier
+      - name: Install Prettier
+        run: npm install prettier
 
-    - name: Run Prettier
-      run: npx prettier --write "content/**/*.md" --ignore-path .prettierignore
+      - name: Run Prettier
+        run: npx prettier --write "content/**/*.md" --ignore-path .prettierignore
 
-    - name: Commit changes
-      run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-        git add -A
-        git commit -m "chore: format content markdown files with Prettier" || echo "No changes to commit"
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add -A
+          git commit -m "chore: format content markdown files with Prettier" || echo "No changes to commit"
 
-    - name: Push changes
-      run: git push
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Push changes
+        run: git push https://${{ secrets.GITHUB_TOKEN }}@github.com/neondatabase/website.git
