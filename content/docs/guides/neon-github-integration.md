@@ -9,6 +9,27 @@ tag: new
 updatedOn: '2024-08-19T11:54:54.454Z'
 ---
 
+<InfoBlock>
+<DocsList title="What you will learn:">
+<p>How the Neon GitHub integration works</p>
+<p>How to install the integration</p>
+<p>How to connect a Neon project to a GitHub repo</p>
+<p>How to add the sample GitHub Actions workflow to your repo</p>
+</DocsList>
+
+<DocsList title="Related topics" theme="docs">
+<a href="https://neon.tech/flow">Database branching workflows</a>
+<a href="/docs/guides/autoscaling-algorithm">Database workflow guide for developers</a>
+</DocsList>
+
+<DocsList title="Example repositories" theme="repo">
+<a href="https://github.com/neondatabase/preview-branches-with-cloudflare" target="_blank" rel="noopener noreferrer">Preview branches with Cloudflare</a>
+<a href="https://github.com/neondatabase/preview-branches-with-fly" target="_blank" rel="noopener noreferrer">Preview branches with Fly.io</a>
+</DocsList>
+</InfoBlock>
+
+
+
 The Neon GitHub integration connects your Neon projects to corresponding GitHub repositories, helping you incorporate your database into your developer workflow. For example, create a database branch for each pull request using GitHub Actions. We’ll provide you with a sample GitHub Actions workflow to help you get started.
 
 ## How it works
