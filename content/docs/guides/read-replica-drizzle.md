@@ -394,6 +394,36 @@ READ_REPLICA_URL=postgres://your-username:your-password@your-neon-read-replica-h
 
 These environment variables store the connection strings for both your primary database and the read replica.
 
+<Admonition type="note">
+   You can also pass an array of read replica connection strings if you want to use multiple read replicas. Neon supports adding multiple read replicas to a database branch.
+
+```javascript
+const primaryDb = drizzle(
+  new Pool({
+    connectionString: process.env.DATABASE_URL,
+  })
+);
+const read1 = drizzle(
+  new Pool({
+    connectionString: process.env.READ_REPLICA_URL_1,
+  })
+);
+const read2 = drizzle(
+  new Pool({
+    connectionString: process.env.READ_REPLICA_URL_2,
+  })
+);
+const db = withReplicas(primaryDb, [read1, read2]);
+```
+
+  </Admonition>
+
+If you want to read from the primary compute and bypass read replicas, you can use the `$primary()` key:
+
+```javascript
+const posts = await db.$primary().post.findMany();
+```
+
 You can find the source code for the application described in this guide on GitHub.
 
 <DetailIconCards>
