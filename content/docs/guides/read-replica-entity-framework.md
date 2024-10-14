@@ -426,7 +426,7 @@ The Todo API is now set up to use separate read and write contexts, leveraging N
 You can find the source code for the application described in this guide on GitHub.
 
 <DetailIconCards>
-<a href="https://github.com/dhanushreddy291/neon-read-replica-drizzle" description="Use read replicas with Entity Framework Core" icon="github">Read Replicas in .NET EF</a>
+<a href="https://github.com/dhanushreddy291/neon-read-replica-entity-framework" description="Use read replicas with Entity Framework Core" icon="github">Read Replicas in .NET EF</a>
 </DetailIconCards>
 
 ## Conclusion
