@@ -48,8 +48,7 @@ rm WeatherForecast.cs Controllers/WeatherForecastController.cs
 Install Entity Framework Core Design and Npgsql packages:
 
 <Admonition type="tip" title="Best Practice">
-Always Install the packages version corresponding to your .NET version.
-You can always check your .NET version by running `dotnet --version`
+Ensure you install package versions that match your .NET version. You can verify your .NET version at any time by running `dotnet --version`.
 </Admonition>
 
 ```bash
@@ -260,6 +259,10 @@ To create a read replica:
 
 Your read replica compute is provisioned and appears on the **Computes** tab of the **Branches** page.
 
+Navigate to the **Dashboard** page, select the branch where the read replica compute was provisioned, and set the compute option to **Replica** to obtain the read replica connection string:
+
+![Read replica connection string](/docs/guides/read_replica_connection_string.png)
+
 #### Update the TodoDbContext
 
 Modify `Data/TodoDbContext.cs` to include separate read and write contexts:
@@ -423,8 +426,14 @@ You can use dotnet-ef migrations even with multiple db contexts. You can specify
 
 The Todo API is now set up to use separate read and write contexts, leveraging Neon's read replica feature. Read operations (GET requests) will use the read replica, while write operations (POST, PUT, DELETE) will use the primary database.
 
-You can find the complete source code for this example here [neon-read-replica-entity-framework](https://github.com/dhanushreddy291/neon-read-replica-entity-framework)
+You can find the source code for the application described in this guide on GitHub.
+
+<DetailIconCards>
+<a href="https://github.com/dhanushreddy291/neon-read-replica-entity-framework" description="Use read replicas with Entity Framework Core" icon="github">Read Replicas in .NET EF</a>
+</DetailIconCards>
 
 ## Conclusion
 
 This setup allows you to distribute your read load across one or more read replicas while ensuring that all write operations are performed on the primary database. Monitor your application's performance and adjust the number of read replicas as needed to handle your specific load requirements.
+
+<NeedHelp/>
