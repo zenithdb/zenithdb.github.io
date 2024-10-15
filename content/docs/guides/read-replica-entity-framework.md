@@ -48,8 +48,7 @@ rm WeatherForecast.cs Controllers/WeatherForecastController.cs
 Install Entity Framework Core Design and Npgsql packages:
 
 <Admonition type="tip" title="Best Practice">
-Always Install the packages version corresponding to your .NET version.
-You can always check your .NET version by running `dotnet --version`
+Ensure you install package versions that match your .NET version. You can verify your .NET version at any time by running `dotnet --version`.
 </Admonition>
 
 ```bash
@@ -259,6 +258,10 @@ To create a read replica:
 6. When you finish making selections, click **Create**.
 
 Your read replica compute is provisioned and appears on the **Computes** tab of the **Branches** page.
+
+Navigate to the **Dashboard** page, select the branch where the read replica compute was provisioned, and set the compute option to **Replica** to obtain the read replica connection string:
+
+![Read replica connection string](/docs/guides/read_replica_connection_string.png)
 
 #### Update the TodoDbContext
 
