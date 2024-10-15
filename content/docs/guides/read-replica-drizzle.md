@@ -357,6 +357,10 @@ To create a read replica:
 
 Your read replica compute is provisioned and appears on the **Computes** tab of the **Branches** page.
 
+Navigate to the **Dashboard** page, select the branch where the read replica compute was provisioned, and set the compute option to **Replica** to obtain the read replica connection string:
+
+![Read replica connection string](/docs/guides/read_replica_connection_string.png)
+
 #### Update the Drizzle client
 
 Modify `db/drizzle.ts`:
