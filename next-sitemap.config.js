@@ -43,7 +43,6 @@ module.exports = {
           '/pgt$',
           '/fireship$',
           '/radio$',
-          '/docs/postgres*',
           '/thank-you$',
           '/cfe$',
           '/devs$',
