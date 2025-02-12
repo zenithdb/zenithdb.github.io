@@ -69,6 +69,12 @@ AutoGen is a powerful framework designed to simplify the development of applicat
 
 Utilizing these fundamental components, AutoGen provides a robust and adaptable framework for building a diverse array of AI applications, ranging from simple interactive chatbots to intricate, collaborative multi-agent systems.
 
+## Why Neon for AI Agents?
+
+- **One-Second Provisioning:**  Neon databases can be provisioned in about a second. This speed is critical for AI agents that might need to dynamically create databases as part of their workflow. Unlike traditional database services where provisioning can take minutes, Neon's rapid setup minimizes latency and keeps your agents efficient.
+- **Scale-to-Zero:** Neon's serverless architecture allows automatic scaling to zero when idle, making it cost-effective for short-term tasks.  Pay only for active use or data storage.
+- **Cost-Efficiency:**  Scale-to-zero pricing is ideal for managing potentially thousands of databases without prohibitive costs.  This benefits AI agents performing numerous short tasks.
+
 ## Building the AI agent
 
 Let's start building your AI agent. First, create a new directory for your project. For example, you can name it `autogen-neon-example`. Open this new folder in your preferred code editor.
