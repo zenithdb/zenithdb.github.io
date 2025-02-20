@@ -223,6 +223,12 @@ A custom volume-based paid plan offered by Neon. See [Neon plans](/docs/introduc
 
 See [Neon Free Plan](#neon-free-plan).
 
+## GB-month
+
+Neon bills storage in GB-months, a unit representing the storage of 1 gigabyte (GB) of data for one month. Storage usage is measured every 15 minutes and prorated over the billing period. If usage fluctuates, the total GB-month consumption reflects the sum of all measured usage across the month.
+
+For example, storing 10 GB for a full month counts as 10 GB-months, while storing 10 GB for half of a 30-day month results in 5 GB-months. Note that GB-months use gigabytes (GB, 1000 MB) rather than gibibytes (GiB, 1024 MiB).
+
 ## History
 
 The history of data changes for all branches in your Neon project. A history is maintained to support _point-in-time restore_. For more information, see [Storage details](/docs/introduction/usage-metrics#storage-details).
